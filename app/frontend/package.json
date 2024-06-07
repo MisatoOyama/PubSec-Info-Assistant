@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "watch": "tsc && vite build --watch"
+    "watch": "tsc && vite build --watch",
+    "i18next-extract": "babel --config-file ./i18n/babel.config.json './src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "@azure/storage-blob": "^12.13.0",

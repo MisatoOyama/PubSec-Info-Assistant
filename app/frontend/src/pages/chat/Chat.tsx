@@ -6,6 +6,7 @@ import { Checkbox, Panel, DefaultButton, TextField, SpinButton, Separator, Toggl
 import Switch from 'react-switch';
 import { GlobeFilled, BuildingMultipleFilled, AddFilled, ChatSparkleFilled } from "@fluentui/react-icons";
 import { ITag } from '@fluentui/react/lib/Pickers';
+import { useTranslation } from 'react-i18next';
 
 import styles from "./Chat.module.css";
 import rlbgstyles from "../../components/ResponseLengthButtonGroup/ResponseLengthButtonGroup.module.css";
@@ -28,7 +29,11 @@ import { FolderPicker } from "../../components/FolderPicker";
 import { TagPickerInline } from "../../components/TagPicker";
 import React from "react";
 
+import '../../i18n';
+
 const Chat = () => {
+    const { t, i18n } = useTranslation()
+
     const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
     const [isInfoPanelOpen, setIsInfoPanelOpen] = useState(false);
     const [retrieveCount, setRetrieveCount] = useState<number>(5);
@@ -377,7 +382,7 @@ const Chat = () => {
                             </span>
                             {activeChatMode != ChatMode.Ungrounded &&
                                 <div>
-                                    <h2 className={styles.chatEmptyStateSubtitle}>Ask anything or try an example</h2>
+                                    <h2 className={styles.chatEmptyStateSubtitle}>{t('Ask anything or try an example')}</h2>
                                     <ExampleList onExampleClicked={onExampleClicked} />
                                 </div>
                             }
